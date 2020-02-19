@@ -52,7 +52,7 @@ class CandidateController extends Controller
     
         $candidate=new Candidate;
         $candidate->name=$request->name;
-       
+        $candidate->slug=$this->slugify($candidate->name,'candidates');
       
         $candidate->seat_id=$request->seat_id;
         $candidate->party_id=$request->party_id;
@@ -100,7 +100,7 @@ class CandidateController extends Controller
         $candidate=Candidate::find($id);
         $candidate->name=$request->name;
        
-      
+        $candidate->slug=$this->slugify($request->name,'candidates');
         $candidate->seat_id=$request->seat_id;
         $candidate->party_id=$request->party_id;
         
