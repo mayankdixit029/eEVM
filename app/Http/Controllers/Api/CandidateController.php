@@ -123,8 +123,17 @@ else
      * @param  \App\Candidate  $candidate
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Candidate $candidate)
+    public function destroy($id)
     {
-        //
+        $candidate=Candidate::find($id);
+        if($candidate)
+        {
+        $candidate->delete();
+        return $this->processResponse($candidate,'success','Candidate Deleted');
+        }
+        else
+        {
+            return $this->processResponse(null,'error','Candidate cannot be deleted');
+        }
     }
 }

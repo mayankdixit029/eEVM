@@ -84,9 +84,9 @@ class StateController extends Controller
      */
     public function destroy(State $state)
     {
-       
+        dd($state);
         $state->delete(); 
-        return $this->processResponse(null,'success', 'This State has deleted');
+        return $this->processResponse(null,'success', 'This State has been  deleted');
 
     }
 }

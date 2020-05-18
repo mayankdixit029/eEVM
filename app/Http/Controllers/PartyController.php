@@ -87,7 +87,6 @@ class PartyController extends Controller
     {   
         $party=Party::find($id);
         $party->name=$request->name;
-
         if($request->file('image'))
         {
             if($party->image !== null){
